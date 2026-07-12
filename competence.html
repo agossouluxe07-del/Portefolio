@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Compétences</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, rgba(100, 96, 96, 0.747), rgba(173, 218, 243, 0.556));
+        }
+
+        header {
+            background-color: #333;
+            color: #969090;
+            padding: 20px;
+            margin-bottom: 30px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px 20px;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            font-size: 20px;
+        }
+
+        img {
+            border-radius: 260px;
+            display: block;
+            width: 200px;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+        }
+
+        button {
+            padding: 14px 18px;
+            background-color: #333;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 16px;
+            margin: 8px;
+        }
+
+        button:hover {
+            background-color: #555;
+        }
+        button.active {background-color:#888;}
+        .vout {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            gap: 10px;
+        }
+
+        .vout h2 {
+            font-size: 32px;
+            margin-top: 20px;
+            color: rgba(38, 35, 59, 0.993);
+        }
+
+        .vout h4 {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            font-size: medium;
+        }
+
+        .bi {
+            border: none;
+        }
+
+        .bout {
+            text-align: center;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 10px;
+        }
+
+    
+        .competences {
+            background-color: rgba(255, 255, 255, 0.514);
+            text-align: left;
+            margin: 0 auto 60px;
+            padding: 30px 20px;
+            border-radius: 30px;
+            max-width: 1000px;
+        }
+
+        .competences h1 {
+            text-align: center;
+            font-size: 28px;
+            margin-top: 0;
+            margin-bottom: 30px;
+            color: rgba(38, 35, 59, 0.993);
+        }
+
+        .cat-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 25px;
+            margin-bottom: 35px;
+        }
+
+        .cat h3 {
+            font-size: 18px;
+            margin-bottom: 8px;
+            color: rgba(38, 35, 59, 0.993);
+            border-bottom: 2px solid rgba(38, 35, 59, 0.3);
+            padding-bottom: 4px;
+        }
+
+        .cat ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 15px;
+            line-height: 1.7;
+        }
+
+        .barres h3 {
+            text-align: center;
+            font-size: 20px;
+            margin-bottom: 20px;
+            color: rgba(38, 35, 59, 0.993);
+        }
+
+        .barre {
+            margin-bottom: 14px;
+        }
+
+        .barre-label {
+            display: flex;
+            justify-content: space-between;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+
+        .barre-fond {
+            background-color: rgba(0, 0, 0, 0.15);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 10px;
+        }
+
+        .barre-remplie {
+            background-color: #333;
+            height: 100%;
+            border-radius: 20px;
+        }
+
+        .competences p.conclusion {
+            font-size: 15px;
+            line-height: 1.6;
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        footer {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 10px;
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 15px;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        
+        @media (min-width: 1024px) {
+            header {
+                font-size: 24px;
+            }
+
+            img {
+                width: 400px;
+            }
+
+            .vout {
+                flex-direction: row;
+                justify-content: space-around;
+                max-width: 900px;
+            }
+
+            .vout h2 {
+                font-size: 55px;
+                margin-top: 60px;
+            }
+
+            button {
+                padding: 18px 24px;
+                font-size: 18px;
+                margin: 20px 30px;
+            }
+
+            .competences {
+                padding: 50px 80px;
+                border-radius: 60px;
+                margin-bottom: 80px;
+            }
+
+            .cat-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header> AGOSSOU Luxe ... Porte-folio </header>
+
+    <div class="vout">
+        <img src="lu2.png" alt="photo">
+        <div class="bi">
+            <h2>Luxe AGOSSOU</h2>
+            <h4>Crée-Développer-Innover</h4>
+        </div>
+    </div>
+
+    <div class="bout">
+        <a href="Portefolio.html"><button>Acceuil</button></a>
+        <a href="propos.html"><button>A Propos</button></a>
+        <a href="competence.html" > <button class="active">competence</button></a>
+        <a href="projet.html"><button>projet</button></a>
+    </div>
+
+    <div class="competences">
+        <h1>Compétences</h1>
+
+        <div class="cat-grid">
+            <div class="cat">
+                <h3>Développement</h3>
+                <ul>
+                    <li>HTML5</li>
+                    <li>CSS / Responsive Design</li>
+                    <li>Bases de données</li>
+                    <li>Langage C</li>
+                    
+                </ul>
+            </div>
+
+            <div class="cat">
+                <h3>Outils &amp; Technologies</h3>
+                <ul>
+                    <li>Visual Studio Code</li>
+                    <li>Git &amp; GitHub</li>
+                    <li>Figma</li>
+                    <li>Microsoft Office</li>
+                </ul>
+            </div>
+
+            <div class="cat">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Résolution de problèmes</li>
+                    <li>Esprit d'équipe</li>
+                    <li>Curiosité</li>
+                    <li>Adaptabilité</li>
+                    <li>Sens du détail</li>
+                    <li>Apprentissage rapide</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="barres">
+            <h3>Niveau de maîtrise</h3>
+
+            <div class="barre">
+                <div class="barre-label"><span>HTML5</span><span>95 %</span></div>
+                <div class="barre-fond"><div class="barre-remplie" style="width: 95%;"></div></div>
+            </div>
+            <div class="barre">
+                <div class="barre-label"><span>CSS3</span><span>90 %</span></div>
+                <div class="barre-fond"><div class="barre-remplie" style="width: 90%;"></div></div>
+            </div>
+            <div class="barre">
+                <div class="barre-label"><span>MySQL</span><span>80 %</span></div>
+                <div class="barre-fond"><div class="barre-remplie" style="width: 80%;"></div></div>
+            </div>
+            <div class="barre">
+                <div class="barre-label"><span>Langage C</span><span>75 %</span></div>
+                <div class="barre-fond"><div class="barre-remplie" style="width: 75%;"></div></div>
+            </div>
+            
+            <div class="barre">
+                <div class="barre-label"><span>Git &amp; GitHub</span><span>75 %</span></div>
+                <div class="barre-fond"><div class="barre-remplie" style="width: 75%;"></div></div>
+            </div>
+            <div class="barre">
+                <div class="barre-label"><span>Figma</span><span>80 %</span></div>
+                <div class="barre-fond"><div class="barre-remplie" style="width: 80%;"></div></div>
+            </div>
+        </div>
+
+        <p class="conclusion">
+            J'acquiers continuellement de nouvelles compétences afin de développer des applications web modernes, performantes et sécurisées. Mon objectif est de maîtriser l'ensemble de la chaîne de développement, de la conception de l'interface jusqu'à la gestion des bases de données et du back-end.
+        </p>
+    </div>
+
+    <footer>
+        <a href="mailto:agossouluxe07@gmail.com"><h4>email</h4></a>
+        <h4>Whats App</h4>
+        <h4>Télégram</h4>
+        <h4>Discord</h4>
+    </footer>
+</body>
+</html>

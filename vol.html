@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mission Agence - Réservation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            margin: 0;
+            background: #481fb138;
+            padding: 15px;
+        }
+
+        header {
+            background-color: blue;
+            color: white;
+            text-align: center;
+            padding: 12px;
+        }
+
+        header h2 {
+            margin: 0;
+            font-size: 22px;
+        }
+
+        .blok1 {
+            padding: 15px;
+        }
+
+        .loki {
+            background: beige;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 255, 0.25);
+            max-width: 300px;
+            margin: auto;
+            text-align: center;
+        }
+
+        .loki h2 {
+            margin: 0;
+        }
+
+        .luxe {
+            width: 100%;
+            max-width: 950px;
+            background-color: rgb(245, 244, 241);
+            border-radius: 6px;
+            margin: 30px auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .luxe label {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .luxe input,
+        .luxe select,
+        .luxe button {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            margin-top: 8px;
+            margin-bottom: 10px;
+        }
+
+        .luxe button {
+            background-color: blue;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: background-color 0.2s ease;
+        }
+
+        .luxe button:hover {
+            background-color: #0000cc;
+        }
+
+        h2.resultat-titre {
+            text-align: center;
+        }
+
+        .resultats {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 20px;
+            max-width: 950px;
+            margin: 0 auto;
+        }
+
+        .blok2 {
+            border: 4px solid #030210;
+            box-shadow: 0 4px 12px rgba(20, 1, 59, 0.4);
+            padding: 15px;
+            background-color: beige;
+            border-radius: 10px;
+        }
+
+        .blok2 h2 {
+            margin: 0 0 6px;
+            font-size: 20px;
+        }
+
+        .blok2 p {
+            margin: 4px 0;
+        }
+
+        /* Desktop (>= 1024px) */
+        @media (min-width: 1024px) {
+            .luxe {
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr 1fr auto;
+                gap: 12px;
+                align-items: end;
+            }
+
+            .luxe label {
+                margin-top: 0;
+            }
+
+            .luxe input,
+            .luxe select,
+            .luxe button {
+                margin-top: 6px;
+                margin-bottom: 0;
+            }
+
+            .resultats {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h2>MISSION AGENCE</h2>
+    </header>
+
+    <div class="blok1">
+        <div class="loki">
+            <h2>Réservation</h2>
+        </div>
+
+        <div class="luxe">
+            <div>
+                <label for="depart">Ville De Départ</label>
+                <input type="text" id="depart">
+            </div>
+
+            <div>
+                <label for="destination">Destination</label>
+                <input type="text" id="destination">
+            </div>
+
+            <div>
+                <label for="date">Date</label>
+                <input type="text" id="date">
+            </div>
+
+            <div>
+                <label for="passagers">Nombre De Passager</label>
+                <select id="passagers">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                </select>
+            </div>
+
+            <button type="button">Rechercher</button>
+        </div>
+
+        <h2 class="resultat-titre">Résultat</h2>
+
+        <div class="resultats">
+            <div class="blok2">
+                <h2>Bénin-France</h2>
+                <p>10 h 00</p>
+                <p>400 000 FCFA</p>
+            </div>
+
+            <div class="blok2">
+                <h2>Bénin-États Unis</h2>
+                <p>14 h 00</p>
+                <p>1 000 000 FCFA</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

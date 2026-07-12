@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LUXUS GESTION - Paramètres</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a1a2e;
+      --accent: #c8a96e;
+      --surface: #ffffff;
+      --surface-2: #f6f5f2;
+      --text: #1a1a2e;
+      --text-muted: #8a8a9a;
+      --border: #e8e6e0;
+      --success: #2d7a4f;
+      --warning: #b85c1a;
+      --radius: 10px;
+      --shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.06);
+      --sidebar-width: 30vw;
+      --sidebar-min: 280px;
+      --sidebar-max: 380px;
+    }
+    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface-2);
+      color: var(--text);
+      line-height: 1.5;
+      min-height: 100vh;
+    }
+    
+    .layout { display: flex; min-height: 100vh; }
+    
+    /* ── Sidebar 30% PC ── */
+    .sidebar {
+      width: var(--sidebar-width);
+      min-width: var(--sidebar-min);
+      max-width: var(--sidebar-max);
+      background: var(--primary);
+      color: #fff;
+      padding: 32px 24px;
+      flex-shrink: 0;
+      display: flex;
+      flex-direction: column;
+      position: sticky;
+      top: 0;
+      height: 100vh;
+    }
+    
+    .sidebar-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2rem);
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 40px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+    
+    .sidebar nav ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 18px;
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+      border-radius: var(--radius);
+      font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+      font-weight: 400;
+      transition: all 0.18s ease;
+    }
+    
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.07);
+      color: #fff;
+    }
+    
+    .sidebar a.active {
+      background: var(--accent);
+      color: var(--primary);
+      font-weight: 600;
+    }
+    
+    .sidebar-icon {
+      width: 18px;
+      height: 18px;
+      opacity: 0.8;
+      flex-shrink: 0;
+    }
+    
+    /* ── Main ── */
+    .main { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+    
+    /* ── Header ── */
+    header {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 28px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+    
+    .topbar { display: flex; align-items: center; gap: 14px; }
+    .search-wrap { flex: 1; max-width: 360px; position: relative; }
+    .search-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); color: var(--text-muted); }
+    
+    .topbar input {
+      width: 100%;
+      padding: 9px 12px 9px 36px;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-family: 'DM Sans', sans-serif;
+      background: var(--surface-2);
+      color: var(--text);
+      outline: none;
+      transition: border-color 0.18s;
+    }
+    
+    .topbar input:focus { border-color: var(--accent); }
+    
+    .user-badge {
+      margin-left: auto;
+      background: var(--primary);
+      color: var(--accent);
+      padding: 7px 16px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    
+    /* ── Page content ── */
+    .page { padding: 28px; flex: 1; }
+    .page-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: var(--text);
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    
+    /* ── Settings grid ── */
+    .settings-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 20px;
+    }
+    
+    /* ── Card ── */
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+    
+    .card h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 16px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+    }
+    
+    .card p {
+      font-size: 0.9rem;
+      color: var(--text);
+      margin-bottom: 10px;
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .card p span {
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+    
+    /* ── Buttons ── */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 7px;
+      cursor: pointer;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: all 0.18s ease;
+      text-decoration: none;
+      margin-top: 8px;
+    }
+    
+    .btn-primary { background: var(--primary); color: #fff; }
+    .btn-primary:hover { background: #2a2a4a; }
+    .btn-accent { background: var(--accent); color: var(--primary); }
+    .btn-accent:hover { opacity: 0.88; }
+    .btn-ghost { background: var(--surface-2); color: var(--text); border: 1px solid var(--border); }
+    .btn-ghost:hover { background: var(--border); }
+    
+    /* ── Footer ── */
+    footer {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 16px;
+      font-size: 0.8rem;
+      color: var(--text-muted);
+    }
+    
+    /* ── Hamburger ── */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+      color: var(--text);
+    }
+    
+    /* ── Responsive ── */
+    @media (max-width: 1200px) {
+      :root { --sidebar-width: 260px; }
+    }
+    
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        left: -100%;
+        top: 0;
+        height: 100vh;
+        z-index: 100;
+        transition: left 0.25s ease;
+        width: 280px;
+        min-width: 280px;
+        max-width: 280px;
+      }
+      .sidebar.open { left: 0; }
+      .overlay {
+        display: none;
+        position: fixed;
+        inset: 0;
+        background: rgba(0,0,0,0.4);
+        z-index: 99;
+      }
+      .overlay.show { display: block; }
+      .menu-toggle { display: flex; }
+      .page { padding: 18px; }
+      .settings-grid { grid-template-columns: 1fr; }
+    }
+    
+    @media (max-width: 480px) {
+      .page-title { font-size: 1.4rem; }
+      .user-badge { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+  <div class="layout">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-logo">LUXUS</div>
+      <nav>
+        <ul>
+          <li>
+            <a href="B0B2.html">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+              Tableau de bord
+            </a>
+          </li>
+          <li>
+            <a href="BOB4.html">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 7H4a2 2 0 00-2 2v10a2 2 0 002 2h16a2 2 0 002-2V9a2 2 0 00-2-2z"/><path d="M16 3H8L4 7h16l-4-4z"/></svg>
+              Inventaire
+            </a>
+          </li>
+          <li>
+            <a href="BOB5.html">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              Sortie de produit
+            </a>
+          </li>
+          <li>
+            <a href="BOB6.html">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+              Fournisseurs
+            </a>
+          </li>
+          <li>
+            <a href="BOB8.html">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+              Entrée des produits
+            </a>
+          </li>
+          <li>
+            <a class="active">
+              <svg class="sidebar-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 010 14.14M4.93 4.93a10 10 0 000 14.14"/></svg>
+              Paramètres
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header>
+        <div class="topbar">
+          <button class="menu-toggle" onclick="toggleSidebar()" aria-label="Menu">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          <div class="search-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" placeholder="Rechercher">
+          </div>
+          <div class="user-badge">Mr COCO</div>
+        </div>
+      </header>
+
+      <div class="page">
+        <h1 class="page-title">Paramètres</h1>
+
+        <div class="settings-grid">
+          <div class="card">
+            <h3>Profil</h3>
+            <p><span>Nom</span> Mr COCO</p>
+            <p><span>Email</span> COCO@mail.com</p>
+            <p><span>Numéro</span> 01xxxxxxxxxx</p>
+          </div>
+
+          <div class="card">
+            <h3>Sécurité</h3>
+            <p>Gérez la sécurité de votre compte</p>
+            <a href="mot.html" class="btn btn-primary">Changer mot de passe</a>
+          </div>
+
+          <div class="card">
+            <h3>Aide et assistance</h3>
+            <p>Besoin d'aide pour utiliser LUXUS ?</p>
+            <a href="text.html" class="btn btn-accent">Comment fonctionne LUXUS</a>
+            <div style="margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--border);">
+              <h3 style="border: none; padding: 0; margin-bottom: 12px;">Problème</h3>
+              <a href="probleme.html" class="btn btn-ghost">Signaler un problème</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        © 2026 LUXUS — Tous droits réservés
+      </footer>
+    </div>
+  </div>
+
+  <script>
+    function toggleSidebar() {
+      document.getElementById('sidebar').classList.toggle('open');
+      document.getElementById('overlay').classList.toggle('show');
+    }
+  </script>
+</body>
+</html>
